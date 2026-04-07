@@ -15,8 +15,8 @@ class i3BladeComponentsServiceProvider extends PackageServiceProvider
          * More info: https://github.com/spatie/laravel-package-tools
          */
         $package
-            ->name('i3')
+            ->name('blade-components')
             ->hasConfigFile()
-            ->hasViews();
+            ->hasViews('i3');
     }
 }

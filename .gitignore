@@ -6,3 +6,8 @@
 *.cache
 .DS_Store
 Thumbs.db
+workbench/.env
+workbench/database/*.sqlite
+workbench/database/*.sqlite-shm
+workbench/database/*.sqlite-wal
+workbench/bootstrap/cache/

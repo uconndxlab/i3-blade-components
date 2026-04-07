@@ -17,13 +17,13 @@ The service provider is auto-discovered by Laravel. No additional setup is requi
 Optionally, publish the config file:
 
 ```bash
-php artisan vendor:publish --tag="i3-config"
+php artisan vendor:publish --tag="blade-components-config"
 ```
 
 Optionally, publish the views to customize them in your application:
 
 ```bash
-php artisan vendor:publish --tag="i3-views"
+php artisan vendor:publish --tag="blade-components-views"
 ```
 
 ## Usage
@@ -42,9 +42,24 @@ All components are available under the `i3::` namespace:
 |---|---|---|
 | PoweredBy | `<x-i3::powered-by>` | Generic wrapper for "powered by" attribution |
 
+## Previewing Components Locally
+
+This package includes an [Orchestra Workbench](https://github.com/orchestral/testbench) dev server for browsing components in the browser.
+
+```bash
+composer build   # First time only — creates the SQLite db and publishes assets
+composer serve   # Start the dev server at http://127.0.0.1:8000
+```
+
+The gallery is a single scrollable page with all components and their variants. The sidebar links jump to each component section.
+
+To add a new component to the gallery:
+1. Create `workbench/resources/views/previews/{kebab-name}.blade.php` with labeled variant examples
+2. Add `'kebab-name' => 'Display Name'` to the `$components` array in `workbench/routes/web.php`
+
 ## Adding Components
 
-See `.github/copilot-instructions.md` for conventions. Use the `/create-blade-component` Copilot prompt to scaffold new components including the view, optional class, and test in one step.
+See `.github/copilot-instructions.md` for conventions. Use the `/create-blade-component` Copilot prompt to scaffold new components including the view, optional class, test, and workbench preview in one step.
 
 ## Testing
 

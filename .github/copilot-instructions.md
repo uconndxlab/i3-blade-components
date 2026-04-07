@@ -21,23 +21,27 @@ src/
   i3BladeComponentsServiceProvider.php  # Package registration
 resources/views/
   components/          # Blade component templates
-tests/                 # ⚠️ Directory doesn't exist yet—create it when adding tests
+tests/
+  TestCase.php         # Base test class (Orchestra Testbench)
+  Components/          # One *Test.php per component
 config/               # Package configuration
+workbench/
+  resources/views/
+    layout.blade.php    # Gallery shell (Tailwind CDN)
+    gallery.blade.php   # Single-page component gallery
+    previews/           # One file per component: {kebab-name}.blade.php
 ```
 
 ## Build and Test Commands
 
 ```bash
+composer serve         # Start workbench dev server at http://127.0.0.1:8000
+composer build         # Build workbench (run migrations, publish assets)
 composer test          # Run Pest tests
 composer test-coverage # Run tests with coverage report
 composer analyse       # Run PHPStan static analysis (Level 9)
 composer format        # Run Laravel Pint formatter
 ```
-
-**Before first commit**: Create missing config files for consistent tooling:
-- `phpstan.neon` — Static analysis rules
-- `pint.json` — Code style rules (Laravel preset)
-- `tests/` directory with initial test structure
 
 ## Creating New Blade Components
 
@@ -55,6 +59,8 @@ composer format        # Run Laravel Pint formatter
    Blade::component('i3::component-name', ComponentName::class);
    ```
 4. Create test: `tests/Components/ComponentNameTest.php`
+5. Create preview: `workbench/resources/views/previews/component-name.blade.php` with labeled variant examples
+6. Register in `workbench/routes/web.php` `$components` array: `'component-name' => 'Component Name'`
 
 ### Testing Components
 **Framework**: Pest 4.0 with Orchestra Testbench  
