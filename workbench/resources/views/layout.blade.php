@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>i3 Blade Components</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    @include('i3::components._styles')
 </head>
 <body class="bg-gray-50 text-gray-900 antialiased">
     <div class="flex min-h-screen">

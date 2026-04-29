@@ -1,0 +1,13 @@
+{
+    "name": "i3-blade-components",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "build": "postcss resources/css/i3-blade-components.css -o resources/dist/i3-blade-components.css"
+    },
+    "devDependencies": {
+        "postcss": "^8.5",
+        "postcss-cli": "^11.0",
+        "postcss-import": "^16.1"
+    }
+}

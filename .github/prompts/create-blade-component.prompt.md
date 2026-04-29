@@ -25,6 +25,8 @@ Create `resources/views/components/{kebab-name}.blade.php`.
 
 **View-only template:**
 ```blade
+@include('i3::components._styles')
+
 @props([])
 
 <div {{ $attributes->merge(['class' => '']) }}>
@@ -34,6 +36,8 @@ Create `resources/views/components/{kebab-name}.blade.php`.
 
 **Class-based template** — reference each prop as a `$variable`. Add `@props` with props and their defaults so the view is self-documenting:
 ```blade
+@include('i3::components._styles')
+
 @props(['variant' => 'primary'])
 
 <div {{ $attributes->merge(['class' => $variant]) }}>
@@ -143,16 +147,89 @@ it('renders slot content', function () {
         '<x-i3::{kebab-name}>Hello</x-i3::{kebab-name}>'
     );
 
-    expect($view)->toContain('Hello');
+    expect((string) $view)->toContain('Hello');
 });
 
 // Add prop, slot, and variant tests as relevant
 ```
 
+> **Note**: `$this->blade()` returns a `TestView` object. Always cast to `(string) $view` before using string matchers like `toContain()`.
+
 For a class-based component, also add prop and variant tests. See the `/test-blade-component` skill for a full multi-pattern test scaffold.
 
 ---
 
-## Step 5 — Format
+## Step 5 — Add to component gallery
+
+### 5a — Create the preview file
+
+Create `workbench/resources/views/previews/{kebab-name}.blade.php` with labeled variant examples:
+
+```blade
+{{-- Variant: with slot content --}}
+<div class="space-y-6">
+    <div>
+        <p class="text-xs font-medium text-gray-400 uppercase tracking-wide mb-2">With slot content</p>
+        <x-i3::{kebab-name}>
+            Example content
+        </x-i3::{kebab-name}>
+    </div>
+
+    <div>
+        <p class="text-xs font-medium text-gray-400 uppercase tracking-wide mb-2">Empty (no slot)</p>
+        <x-i3::{kebab-name} />
+    </div>
+
+    <div>
+        <p class="text-xs font-medium text-gray-400 uppercase tracking-wide mb-2">With extra attributes</p>
+        <x-i3::{kebab-name} class="text-blue-600 font-semibold">
+            Styled via attributes
+        </x-i3::{kebab-name}>
+    </div>
+</div>
+```
+
+For class-based components, add a labeled variant for each meaningful prop value.
+
+### 5b — Register in the gallery route
+
+Open `workbench/routes/web.php` and add an entry to the `$components` array:
+
+```php
+$components = [
+    // existing entries...
+    '{kebab-name}' => '{Component Display Name}',
+];
+```
+
+The gallery is viewable via `composer serve` at `http://127.0.0.1:8000`.
+
+---
+
+## Step 6 — Create the component CSS file
+
+Create `resources/css/components/{kebab-name}.css` with a scoped comment header:
+
+```css
+/* {kebab-name} component styles */
+```
+
+Then add an import line to `resources/css/i3-blade-components.css`:
+
+```css
+@import "./components/{kebab-name}.css";
+```
+
+Rebuild the compiled stylesheet:
+
+```bash
+npm run build
+```
+
+This updates `resources/dist/i3-blade-components.css` (committed to the repo so consumers don't need Node).
+
+---
+
+## Step 7 — Format
 
 Run `composer format` to normalize all generated files before finishing.

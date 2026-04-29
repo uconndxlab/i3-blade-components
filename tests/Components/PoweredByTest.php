@@ -12,10 +12,14 @@ it('renders without errors', function () {
     expect($view)->not->toBeEmpty();
 });
 
-it('renders slot content', function () {
-    $view = $this->blade(
-        '<x-i3::powered-by>Hello</x-i3::powered-by>'
-    );
+it('renders the powered by link', function () {
+    $view = $this->blade('<x-i3::powered-by />');
 
-    expect((string) $view)->toContain('Hello');
+    expect((string) $view)->toContain('Powered by');
+});
+
+it('renders the stylesheet link', function () {
+    $view = $this->blade('<x-i3::powered-by />');
+
+    expect((string) $view)->toContain('i3-blade-components.css');
 });

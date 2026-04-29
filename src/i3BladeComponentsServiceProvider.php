@@ -17,6 +17,7 @@ class i3BladeComponentsServiceProvider extends PackageServiceProvider
         $package
             ->name('blade-components')
             ->hasConfigFile()
-            ->hasViews('i3');
+            ->hasViews('i3')
+            ->hasAssets();
     }
 }

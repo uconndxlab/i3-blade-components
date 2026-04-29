@@ -1,0 +1,26 @@
+/* powered-by component styles */
+
+.i3-powered-by {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.i3-powered-by svg {
+    width: 38px;
+    height: 38px;
+}
+
+.i3-powered-by .i3-symbol {
+    display: block;
+    flex-shrink: 0;
+}
+
+.i3-powered-by .powered-by-text {
+    font-size: 0.875rem;
+    color: currentColor;
+}
+
+.i3-powered-by .powered-by-text a {
+    text-decoration: underline;
+}
