@@ -1,15 +1,32 @@
 # i3 Blade Components
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/i3/blade-components.svg?style=flat-square)](https://packagist.org/packages/i3/blade-components)
-[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/i3/blade-components/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/i3/blade-components/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/i3/blade-components.svg?style=flat-square)](https://packagist.org/packages/i3/blade-components)
-
 Shared Laravel Blade components for i3 projects. Include this package via Composer to get a consistent set of UI components across all i3 applications.
 
 ## Installation
 
+Because this package is not published to Packagist, add the Git repository as a Composer VCS repository, then require the package.
+
+### One-Time Composer Config
+
 ```bash
-composer require i3/blade-components
+composer config repositories.i3-blade-components vcs https://github.com/bdaley/i3-blade-components.git
+composer require i3/blade-components:dev-main
+```
+
+### composer.json Example
+
+```json
+{
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/bdaley/i3-blade-components.git"
+        }
+    ],
+    "require": {
+        "i3/blade-components": "dev-main"
+    }
+}
 ```
 
 The service provider is auto-discovered by Laravel. No additional setup is required.
