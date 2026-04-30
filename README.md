@@ -68,6 +68,16 @@ composer build   # First time only — creates the SQLite db and publishes asset
 composer serve   # Start the dev server at http://127.0.0.1:8000
 ```
 
+To export the workbench gallery as a static site locally:
+
+```bash
+php vendor/bin/testbench workbench:export-static --path=build/workbench-preview
+```
+
+This generates:
+- `build/workbench-preview/index.html`
+- `build/workbench-preview/i3-blade-components.css`
+
 The gallery is a single scrollable page with all components and their variants. The sidebar links jump to each component section.
 
 To add a new component to the gallery:
@@ -83,6 +93,18 @@ See `.github/copilot-instructions.md` for conventions. Use the `/create-blade-co
 ```bash
 composer test
 ```
+
+## Preview Deployment
+
+GitHub Pages deployment is automated by `.github/workflows/publish-workbench-preview.yml`.
+
+- Trigger: push to `main`
+- Build: installs Composer and npm dependencies, runs `composer build`, and exports static preview files
+- Deploy: publishes `build/workbench-preview` to GitHub Pages
+
+If this repository is configured as a project site, the preview URL is:
+
+`https://bdaley.github.io/i3-blade-components/`
 
 ## Changelog
 
