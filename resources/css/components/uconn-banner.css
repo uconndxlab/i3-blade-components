@@ -1,1 +1,28 @@
 /* uconn-banner component styles */
+/* powered-by component styles */
+
+@scope (.uconn-banner) {
+    :scope {
+        --uconn-blue: #000e2f;
+        --i3-blue: #ffffff;
+        --corner: 10px;
+        --thickness: 2px;
+        --gap: 6px;
+
+        background-color: var(--uconn-blue);
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        min-height: 70px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    svg {
+        width: 115px;
+        height: auto;
+    }
+
+}
