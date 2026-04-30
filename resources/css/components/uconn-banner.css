@@ -25,4 +25,121 @@
         height: auto;
     }
 
+    .uconn-banner-content {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        border: 1px solid red;
+    }
+
+    .uconn-banner-text {
+        font-weight: bold;
+        ;
+    }
+
+}
+
+/* Bootstrap 5.3 responsive breakpoints */
+@scope (.uconn-banner-bootstrap) {
+    .uconn-banner-content {
+        max-width: 100%;
+    }
+
+    @media (min-width: 576px) {
+        .uconn-banner-content {
+            max-width: 540px;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .uconn-banner-content {
+            max-width: 720px;
+        }
+    }
+
+    @media (min-width: 992px) {
+        .uconn-banner-content {
+            max-width: 960px;
+        }
+    }
+
+    @media (min-width: 1200px) {
+        .uconn-banner-content {
+            max-width: 1140px;
+        }
+    }
+
+    @media (min-width: 1400px) {
+        .uconn-banner-content {
+            max-width: 1320px;
+        }
+    }
+}
+
+/* Bulma responsive breakpoints */
+@scope (.uconn-banner-bulma) {
+    .uconn-banner-content {
+        max-width: 100%;
+    }
+
+    @media (min-width: 769px) {
+        .uconn-banner-content {
+            max-width: 960px;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .uconn-banner-content {
+            max-width: 960px;
+        }
+    }
+
+    @media (min-width: 1216px) {
+        .uconn-banner-content {
+            max-width: 1152px;
+        }
+    }
+
+    @media (min-width: 1408px) {
+        .uconn-banner-content {
+            max-width: 1344px;
+        }
+    }
+}
+
+/* Tailwind CSS responsive breakpoints */
+@scope (.uconn-banner-tailwind) {
+    .uconn-banner-content {
+        max-width: 100%;
+    }
+
+    @media (min-width: 640px) {
+        .uconn-banner-content {
+            max-width: 640px;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .uconn-banner-content {
+            max-width: 768px;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .uconn-banner-content {
+            max-width: 1024px;
+        }
+    }
+
+    @media (min-width: 1280px) {
+        .uconn-banner-content {
+            max-width: 1280px;
+        }
+    }
+
+    @media (min-width: 1536px) {
+        .uconn-banner-content {
+            max-width: 1536px;
+        }
+    }
 }
