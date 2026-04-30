@@ -9,7 +9,7 @@ Because this package is not published to Packagist, add the Git repository as a 
 ### One-Time Composer Config
 
 ```bash
-composer config repositories.i3-blade-components vcs https://github.com/bdaley/i3-blade-components.git
+composer config repositories.i3-blade-components vcs https://github.com/uconndxlab/i3-blade-components.git
 composer require i3/blade-components:dev-main
 ```
 
@@ -20,7 +20,7 @@ composer require i3/blade-components:dev-main
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/bdaley/i3-blade-components.git"
+            "url": "https://github.com/uconndxlab/i3-blade-components.git"
         }
     ],
     "require": {
@@ -104,7 +104,7 @@ GitHub Pages deployment is automated by `.github/workflows/publish-workbench-pre
 
 If this repository is configured as a project site, the preview URL is:
 
-`https://bdaley.github.io/i3-blade-components/`
+`https://uconndxlab.github.io/i3-blade-components/`
 
 ## Changelog
 
