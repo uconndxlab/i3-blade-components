@@ -95,3 +95,8 @@ All code must pass:
 3. **Pest tests** with architecture rules — `composer test`
 
 The package uses PHPStan strict rules including deprecation detection and PHPUnit assertions.
+
+## Documentation Maintenance
+
+- After every implementation change, update the root `README.md` so it accurately reflects the current repository state.
+- Treat README updates as part of the definition of done for all feature work, fixes, workflow changes, and developer experience changes.
