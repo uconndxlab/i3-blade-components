@@ -48,16 +48,19 @@ php artisan vendor:publish --tag="blade-components-views"
 All components are available under the `i3::` namespace:
 
 ```blade
-<x-i3::powered-by>
-    Powered by i3
-</x-i3::powered-by>
+<x-i3::powered-by class="my-4" />
+
+<x-i3::uconn-banner class="text-blue-600 font-semibold" id="uconn-banner-demo">
+    UConn Banner Content
+</x-i3::uconn-banner>
 ```
 
 ### Available Components
 
 | Component | Tag | Description |
 |---|---|---|
-| PoweredBy | `<x-i3::powered-by>` | Generic wrapper for "powered by" attribution |
+| PoweredBy | `<x-i3::powered-by>` | Branded "Powered by i3" lockup with SVG mark and link to i3 |
+| UConnBanner | `<x-i3::uconn-banner>` | Pass-through banner wrapper that renders slot content and merged attributes |
 
 ## Previewing Components Locally
 
