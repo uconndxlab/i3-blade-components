@@ -10,6 +10,21 @@ Because this package is not published to Packagist, add the Git repository as a 
 
 ```bash
 composer config repositories.i3-blade-components vcs https://github.com/uconndxlab/i3-blade-components.git
+```
+
+Then install a released version using semantic versioning:
+
+```bash
+# Recommended for production (latest 1.x release)
+composer require i3/blade-components:^1.0.0
+
+# Optional: lock to patch updates only
+composer require i3/blade-components:~1.0.0
+
+# Optional: lock to exactly v1.0.0
+composer require i3/blade-components:1.0.0
+
+# Development-only branch usage
 composer require i3/blade-components:dev-main
 ```
 
@@ -24,10 +39,19 @@ composer require i3/blade-components:dev-main
         }
     ],
     "require": {
-        "i3/blade-components": "dev-main"
+        "i3/blade-components": "^1.0.0"
     }
 }
 ```
+
+### Version Constraints
+
+- `^1.0.0`: allows updates `>=1.0.0 <2.0.0` (recommended default)
+- `~1.0.0`: allows updates `>=1.0.0 <1.1.0` (patch-only updates)
+- `1.0.0`: installs exactly version `1.0.0`
+- `dev-main`: installs the latest development branch state
+
+See [GitHub Releases](https://github.com/uconndxlab/i3-blade-components/releases) for available tags.
 
 The service provider is auto-discovered by Laravel. No additional setup is required.
 

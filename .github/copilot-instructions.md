@@ -7,7 +7,7 @@ Laravel package providing shared Blade components for i3 projects.
 This package allows developers across our organization to:
 - Include shared UI components via Composer from Git (VCS repository):
   - `composer config repositories.i3-blade-components vcs https://github.com/uconndxlab/i3-blade-components.git`
-  - `composer require i3/blade-components:dev-main`
+  - `composer require i3/blade-components:^1.0.0` (use `dev-main` only for development)
 - Use standardized Blade components with the `i3::` namespace
 - Maintain consistent UI patterns across multiple Laravel applications
 
