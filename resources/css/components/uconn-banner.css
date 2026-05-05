@@ -4,7 +4,8 @@
 @scope (.uconn-banner) {
     :scope {
         --uconn-blue: #000e2f;
-        --i3-blue: #ffffff;
+        --light-gray: #9faab2;
+        --dark-gray: #3f4760;
         --corner: 10px;
         --thickness: 2px;
         --gap: 6px;
@@ -34,9 +35,28 @@
     }
 
     .uconn-banner-text {
-        font-weight: bold;
-        color:white;
         flex-grow: 1;
+    }
+
+    .uconn-banner-text a {
+        display:none;
+        justify-content: flex-start;
+        align-items: center;
+        min-height: 23px;
+        border-left: 2px solid var(--dark-gray);
+        padding-left: 10px;
+    }
+
+    @container (min-width: 768px) {
+        .uconn-banner-text a {
+            display:flex;
+        }
+    }
+
+    .uconn-banner-text svg{
+        width: 288px;
+        height: auto;
+        fill: var(--light-gray);
     }
 
     .uconn-banner-buttons {
