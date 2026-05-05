@@ -50,9 +50,7 @@ All components are available under the `i3::` namespace:
 ```blade
 <x-i3::powered-by class="my-4" />
 
-<x-i3::uconn-banner class="text-blue-600 font-semibold" id="uconn-banner-demo">
-    UConn Banner Content
-</x-i3::uconn-banner>
+<x-i3::uconn-banner class="text-blue-600 font-semibold" id="uconn-banner-demo" />
 ```
 
 ### Available Components
@@ -125,10 +123,10 @@ This generates:
 - `build/workbench-preview/index.html`
 - `build/workbench-preview/i3-blade-components.css`
 
-The gallery is a single scrollable page with all components and their variants. The sidebar links jump to each component section.
+The gallery is a single scrollable page with all components and their variants. Each variant shows both the rendered output and the exact Blade invocation used to generate it, with syntax highlighting and a copy-to-clipboard button for quick reuse. The sidebar links jump to each component section.
 
 To add a new component to the gallery:
-1. Create `workbench/resources/views/previews/{kebab-name}.blade.php` with labeled variant examples
+1. Create `workbench/resources/views/previews/{kebab-name}.blade.php` with labeled variant examples and matching Blade code snippets for each variant
 2. Add `'kebab-name' => 'Display Name'` to the `$components` array in `workbench/routes/web.php`
 
 ## Adding Components
