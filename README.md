@@ -64,7 +64,7 @@ All components are available under the `i3::` namespace:
 
 ### UConn Banner — Framework-Aware Responsive Breakpoints
 
-The `uconn-banner` component includes built-in responsive max-width constraints that automatically adapt to your CSS framework. This ensures the banner's content respects your framework's container breakpoints across all screen sizes.
+The `uconn-banner` component includes built-in responsive max-width constraints that automatically adapt to your CSS framework using CSS container queries. This ensures the banner's content respects your framework's container breakpoints based on the component's available width.
 
 **Supported Frameworks:**
 - `bootstrap` (Bootstrap 5.3) — **default**
@@ -103,8 +103,17 @@ This package includes an [Orchestra Workbench](https://github.com/orchestral/tes
 
 ```bash
 composer build   # First time only — creates the SQLite db and publishes assets
-composer serve   # Start the dev server at http://127.0.0.1:8000
+composer serve   # Starts testbench + CSS watch + BrowserSync live reload
 ```
+
+When `composer serve` is running, use:
+
+- `http://127.0.0.1:3000` for live reload (BrowserSync proxy)
+- `http://127.0.0.1:8000` for the underlying Testbench app server
+
+Edits to Blade, PHP, and component CSS files trigger an automatic browser refresh through the proxy URL.
+
+If `composer serve` reports that port `8000` or `3000` is already in use, stop the process using that port and run the command again.
 
 To export the workbench gallery as a static site locally:
 
