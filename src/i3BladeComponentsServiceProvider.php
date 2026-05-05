@@ -2,6 +2,8 @@
 
 namespace i3\i3BladeComponents;
 
+use i3\i3BladeComponents\Components\UConnBanner;
+use Illuminate\Support\Facades\Blade;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -19,5 +21,10 @@ class i3BladeComponentsServiceProvider extends PackageServiceProvider
             ->hasConfigFile()
             ->hasViews('i3')
             ->hasAssets();
+    }
+
+    public function bootingPackage(): void
+    {
+        Blade::component('i3::uconn-banner', UConnBanner::class);
     }
 }

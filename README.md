@@ -60,7 +60,42 @@ All components are available under the `i3::` namespace:
 | Component | Tag | Description |
 |---|---|---|
 | PoweredBy | `<x-i3::powered-by>` | Branded "Powered by i3" lockup with SVG mark and link to i3 |
-| UConnBanner | `<x-i3::uconn-banner>` | Pass-through banner wrapper that renders slot content and merged attributes |
+| UConnBanner | `<x-i3::uconn-banner>` | Responsive banner wrapper with framework-aware breakpoints. Supports Bootstrap, Bulma, and Tailwind CSS |
+
+### UConn Banner — Framework-Aware Responsive Breakpoints
+
+The `uconn-banner` component includes built-in responsive max-width constraints that automatically adapt to your CSS framework using CSS container queries. This ensures the banner's content respects your framework's container breakpoints based on the component's available width.
+
+**Supported Frameworks:**
+- `bootstrap` (Bootstrap 5.3) — **default**
+- `bulma` (Bulma CSS framework)
+- `tailwind` (Tailwind CSS)
+
+The component defaults to Bootstrap if an unrecognized framework is specified.
+
+**Usage Examples:**
+
+```blade
+{{-- Bootstrap (default) --}}
+<x-i3::uconn-banner />
+
+{{-- Bulma breakpoints --}}
+<x-i3::uconn-banner framework="bulma" />
+
+{{-- Tailwind CSS breakpoints --}}
+<x-i3::uconn-banner framework="tailwind" />
+
+{{-- With additional attributes --}}
+<x-i3::uconn-banner framework="bulma" class="my-custom-class" id="my-banner" />
+```
+
+**Responsive Behavior:**
+
+The banner's content width automatically adjusts at these breakpoints for each framework:
+
+- **Bootstrap 5.3**: 576px (540px), 768px (720px), 992px (960px), 1200px (1140px), 1400px (1320px)
+- **Bulma**: 769px (960px), 1024px (960px), 1216px (1152px), 1408px (1344px)
+- **Tailwind CSS**: 640px (640px), 768px (768px), 1024px (1024px), 1280px (1280px), 1536px (1536px)
 
 ## Previewing Components Locally
 
@@ -68,8 +103,17 @@ This package includes an [Orchestra Workbench](https://github.com/orchestral/tes
 
 ```bash
 composer build   # First time only — creates the SQLite db and publishes assets
-composer serve   # Start the dev server at http://127.0.0.1:8000
+composer serve   # Starts testbench + CSS watch + BrowserSync live reload
 ```
+
+When `composer serve` is running, use:
+
+- `http://127.0.0.1:3000` for live reload (BrowserSync proxy)
+- `http://127.0.0.1:8000` for the underlying Testbench app server
+
+Edits to Blade, PHP, and component CSS files trigger an automatic browser refresh through the proxy URL.
+
+If `composer serve` reports that port `8000` or `3000` is already in use, stop the process using that port and run the command again.
 
 To export the workbench gallery as a static site locally:
 

@@ -8,12 +8,13 @@
         --corner: 10px;
         --thickness: 2px;
         --gap: 6px;
+        container-type: inline-size;
 
         background-color: var(--uconn-blue);
         display: flex;
         align-items: center;
         gap: 1rem;
-        justify-content: flex-start;
+        justify-content: center;
         flex-wrap: wrap;
         min-height: 70px;
         padding-left: 15px;
@@ -25,4 +26,143 @@
         height: auto;
     }
 
+    .uconn-banner-content {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        width:100%;
+    }
+
+    .uconn-banner-text {
+        font-weight: bold;
+        color:white;
+        flex-grow: 1;
+    }
+
+    .uconn-banner-buttons {
+        display:flex;
+        align-self: flex-end;
+    }
+
+    .button {
+        display: flex;
+        width: 32px;
+        height: 32px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .uconn-banner-buttons svg {
+        fill: white;
+    }
+
+    .icon-search {
+        width: 20px;
+        height: auto;
+    }
+
+    .icon-az-index {
+        width: 20px;
+        height: auto;
+    }
+
+}
+
+/* Bootstrap 5.3 responsive breakpoints */
+@scope (.uconn-banner-bootstrap) {
+    .uconn-banner-content {
+        max-width: 540px;
+    }
+
+    @container (min-width: 768px) {
+        .uconn-banner-content {
+            max-width: 720px;
+        }
+    }
+
+    @container (min-width: 992px) {
+        .uconn-banner-content {
+            max-width: 960px;
+        }
+    }
+
+    @container (min-width: 1200px) {
+        .uconn-banner-content {
+            max-width: 1140px;
+        }
+    }
+
+    @container (min-width: 1400px) {
+        .uconn-banner-content {
+            max-width: 1320px;
+        }
+    }
+}
+
+/* Bulma responsive breakpoints */
+@scope (.uconn-banner-bulma) {
+    .uconn-banner-content {
+        max-width: 100%;
+    }
+
+    @container (min-width: 769px) {
+        .uconn-banner-content {
+            max-width: 960px;
+        }
+    }
+
+    @container (min-width: 1024px) {
+        .uconn-banner-content {
+            max-width: 960px;
+        }
+    }
+
+    @container (min-width: 1216px) {
+        .uconn-banner-content {
+            max-width: 1152px;
+        }
+    }
+
+    @container (min-width: 1408px) {
+        .uconn-banner-content {
+            max-width: 1344px;
+        }
+    }
+}
+
+/* Tailwind CSS responsive breakpoints */
+@scope (.uconn-banner-tailwind) {
+    .uconn-banner-content {
+        max-width: 100%;
+    }
+
+    @container (min-width: 640px) {
+        .uconn-banner-content {
+            max-width: 640px;
+        }
+    }
+
+    @container (min-width: 768px) {
+        .uconn-banner-content {
+            max-width: 768px;
+        }
+    }
+
+    @container (min-width: 1024px) {
+        .uconn-banner-content {
+            max-width: 1024px;
+        }
+    }
+
+    @container (min-width: 1280px) {
+        .uconn-banner-content {
+            max-width: 1280px;
+        }
+    }
+
+    @container (min-width: 1536px) {
+        .uconn-banner-content {
+            max-width: 1536px;
+        }
+    }
 }

@@ -3,11 +3,19 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "build": "postcss resources/css/i3-blade-components.css -o resources/dist/i3-blade-components.css"
+        "build": "postcss resources/css/i3-blade-components.css -o resources/dist/i3-blade-components.css",
+        "watch": "postcss resources/css/i3-blade-components.css -o resources/dist/i3-blade-components.css --watch",
+        "reload": "browser-sync start --proxy http://127.0.0.1:8000 --port 3000 --no-open --files \"resources/views/**/*.blade.php\" \"workbench/resources/views/**/*.blade.php\" \"workbench/routes/**/*.php\" \"src/**/*.php\" \"resources/css/**/*.css\"",
+        "reload:wait": "wait-on tcp:127.0.0.1:8000 && npm run reload",
+        "dev": "concurrently -k -n css,reload -c yellow,cyan \"npm run watch\" \"npm run reload:wait\"",
+        "serve:workbench": "concurrently -k -n app,dev -c green,magenta \"php vendor/bin/testbench serve --ansi --host=127.0.0.1 --port=8000\" \"npm run dev\""
     },
     "devDependencies": {
+        "browser-sync": "^3.0.4",
+        "concurrently": "^9.2.1",
         "postcss": "^8.5",
         "postcss-cli": "^11.0",
-        "postcss-import": "^16.1"
+        "postcss-import": "^16.1",
+        "wait-on": "^9.0.5"
     }
 }
