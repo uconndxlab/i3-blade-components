@@ -58,13 +58,13 @@
         --dark-gray: #3f4760;
         --corner: 10px;
         --thickness: 2px;
-        --gap: 6px;
+        --gap: 15px;
         container-type: inline-size;
 
         background-color: var(--uconn-blue);
         display: flex;
         align-items: center;
-        gap: 1rem;
+        gap: var(--gap);
         justify-content: center;
         flex-wrap: wrap;
         min-height: 70px;
@@ -80,7 +80,7 @@
     .uconn-banner-content {
         display: flex;
         align-items: center;
-        gap: 1rem;
+        gap: var(--gap);
         width:100%;
     }
 
@@ -94,7 +94,7 @@
         align-items: center;
         min-height: 23px;
         border-left: 2px solid var(--dark-gray);
-        padding-left: 10px;
+        padding-left: var(--gap);
     }
 
     @container (min-width: 768px) {
@@ -111,6 +111,7 @@
 
     .uconn-banner-buttons {
         display:flex;
+        gap: calc(var(--gap) / 2 );
         align-self: flex-end;
     }
 
