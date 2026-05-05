@@ -120,7 +120,7 @@
 /* Bootstrap 5.3 responsive breakpoints */
 @scope (.uconn-banner-bootstrap) {
     .uconn-banner-content {
-            max-width: 540px;
+        max-width: 540px;
     }
 
     @container (min-width: 768px) {
