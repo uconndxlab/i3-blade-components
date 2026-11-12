@@ -1,9 +1,9 @@
 ---
+name: create-blade-component
 description: "Scaffold a new Blade component: generates view, optional component class, and Pest test. Use when creating, adding, or generating a new blade component for the package."
-agent: "agent"
+disable-model-invocation: true
 argument-hint: "ComponentName [prop:type prop:type=default ...]"
 ---
-
 Scaffold a new Blade component for the i3 blade-components package. Follow the conventions in [copilot-instructions.md](../copilot-instructions.md).
 
 ## Input Parsing
