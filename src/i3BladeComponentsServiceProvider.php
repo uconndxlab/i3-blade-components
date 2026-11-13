@@ -2,6 +2,7 @@
 
 namespace i3\i3BladeComponents;
 
+use i3\i3BladeComponents\Components\SiteTitle;
 use i3\i3BladeComponents\Components\UConnBanner;
 use Illuminate\Support\Facades\Blade;
 use Spatie\LaravelPackageTools\Package;
@@ -25,6 +26,7 @@ class i3BladeComponentsServiceProvider extends PackageServiceProvider
 
     public function bootingPackage(): void
     {
+        Blade::component('i3::site-title', SiteTitle::class);
         Blade::component('i3::uconn-banner', UConnBanner::class);
     }
 }

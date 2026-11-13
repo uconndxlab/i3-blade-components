@@ -60,6 +60,7 @@ Route::get('/i3-blade-components.css', function () {
 Route::get('/', function () {
     $components = [
         'powered-by' => 'Powered By',
+        'site-title' => 'Site Title',
         'uconn-banner' => 'UConn Banner',
     ];
 

@@ -17,7 +17,7 @@
         gap: var(--gap);
         justify-content: center;
         flex-wrap: wrap;
-        min-height: 70px;
+        min-height: 60px;
         padding-left: 15px;
         padding-right: 15px;
     }
@@ -32,6 +32,10 @@
         align-items: center;
         gap: var(--gap);
         width:100%;
+    }
+
+    .uconn-banner-wordmark-link {
+        line-height: 1;
     }
 
     .uconn-banner-text {

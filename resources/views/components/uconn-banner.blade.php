@@ -2,7 +2,7 @@
 
 <div {{ $attributes->merge(['class' => 'uconn-banner uconn-banner-' . $framework]) }}>
     <div class="uconn-banner-content">
-        <a href="https://www.uconn.edu/" rel="noopener noreferrer">
+        <a href="https://www.uconn.edu/" rel="noopener noreferrer" class="uconn-banner-wordmark-link">
             <svg viewBox="0 0 672.03998 141.12" xmlns="http://www.w3.org/2000/svg">
                 <g transform="matrix(1.3333333 0 0 -1.3333333 0 141.12)">
                     <g transform="scale(.1)" fill="#fff" fill-rule="nonzero">

@@ -53,7 +53,47 @@ composer require i3/blade-components:dev-main
 
 See [GitHub Releases](https://github.com/uconndxlab/i3-blade-components/releases) for available tags.
 
-The service provider is auto-discovered by Laravel. No additional setup is required.
+The service provider is auto-discovered by Laravel.
+
+### Publish the Component Assets
+
+Publish the package's compiled stylesheet into the Laravel application's `public/vendor/blade-components` directory:
+
+```bash
+php artisan vendor:publish --tag="blade-components-assets"
+```
+
+The components automatically load the published stylesheet from `public/vendor/blade-components/i3-blade-components.css`. The stylesheet link is emitted only once per page, even when multiple i3 components are rendered. No additional stylesheet link is required in the application's layout.
+
+Run the publish command again with `--force` after updating the package when you need to replace previously published assets:
+
+```bash
+php artisan vendor:publish --tag="blade-components-assets" --force
+```
+
+### Fonts
+
+This package does not embed or distribute font files. Applications may use the components without adding fonts; the browser will use the documented fallbacks or the application's inherited font.
+
+| Component | Font styling | Optional font to provide |
+|---|---|---|
+| Powered By | `Rockwell, "Courier New", Courier, monospace` at weight `400` | Rockwell regular for the intended appearance. Without it, the component uses Courier New, Courier, or the browser's monospace font |
+| Site Title | Inherits the consuming application's font. The subheader uses weight `400`; the title uses weight `500` | Any application typeface that includes regular and medium weights. Content in the `right` slot also inherits the application font |
+| UConn Banner | No font family is required; the branded wordmarks and controls are SVG graphics | None |
+
+If a project wants to use Rockwell or another web font, it must provide appropriately licensed font files and register them in its own CSS/Vite build. For example, an application could place a licensed font file in `resources/fonts` and add this to its application stylesheet:
+
+```css
+@font-face {
+    font-family: Rockwell;
+    src: url("../fonts/rockwell.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+```
+
+The application stylesheet containing the `@font-face` declaration must be included in the application's Vite entry point. Font filenames and available weights will depend on the licensed font files used by the consuming project.
 
 Optionally, publish the config file:
 
@@ -74,6 +114,8 @@ All components are available under the `i3::` namespace:
 ```blade
 <x-i3::powered-by class="my-4" />
 
+<x-i3::site-title title="Digital Experience" subheader="University of Connecticut" />
+
 <x-i3::uconn-banner class="text-blue-600 font-semibold" id="uconn-banner-demo" />
 ```
 
@@ -82,7 +124,48 @@ All components are available under the `i3::` namespace:
 | Component | Tag | Description |
 |---|---|---|
 | PoweredBy | `<x-i3::powered-by>` | Branded "Powered by i3" lockup with SVG mark and link to i3 |
+| SiteTitle | `<x-i3::site-title>` | Site title and subheader with optional links and framework-aware width containment |
 | UConnBanner | `<x-i3::uconn-banner>` | Responsive banner wrapper with framework-aware breakpoints. Supports Bootstrap, Bulma, and Tailwind CSS |
+
+### Site Title
+
+The `site-title` component renders a title and subheader. Either value can optionally link to a URL. Its content width uses the same Bootstrap, Bulma, and Tailwind container-query breakpoints as the UConn banner.
+
+```blade
+{{-- Bootstrap containment (default) --}}
+<x-i3::site-title
+    title="Digital Experience"
+    subheader="University of Connecticut"
+/>
+
+{{-- Optional links and Bulma containment --}}
+<x-i3::site-title
+    title="Digital Experience"
+    subheader="University of Connecticut"
+    title-url="/"
+    subheader-url="https://uconn.edu"
+    framework="bulma"
+/>
+
+{{-- Replace the built-in containment class with one supplied by the application --}}
+<x-i3::site-title
+    title="Digital Experience"
+    subheader="University of Connecticut"
+    container-class="container"
+/>
+
+{{-- Add content aligned to the right of the title --}}
+<x-i3::site-title
+    title="Digital Experience"
+    subheader="University of Connecticut"
+>
+    <x-slot:right>
+        <a href="/apply">Apply now</a>
+    </x-slot:right>
+</x-i3::site-title>
+```
+
+Supported `framework` values are `bootstrap` (the default), `bulma`, and `tailwind`. An unsupported value falls back to Bootstrap. When `container-class` is provided, it replaces the framework containment class while preserving the component's scoped structural styles. The optional `right` slot accepts arbitrary Blade content and aligns it to the right of the title.
 
 ### UConn Banner — Framework-Aware Responsive Breakpoints
 
